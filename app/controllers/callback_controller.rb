@@ -1,5 +1,6 @@
-class AuthController < ApplicationController
-    include AuthHelper
+class CallbackController < ApplicationController
+    include CallbackHelper
+
     def gettoken
         token = get_token_from_code params[:code]
         render text: "TOKEN: #{token.token}"
