@@ -25,10 +25,36 @@ module CallbackHelper
 def get_token_from_code(auth_code)
     client = OAuth2::Client.new(CLIENT_ID,
                                 CLIENT_SECRET,
-                                :site => 'https://api.sandbox.wealthsimple.com/v1/oauth/token',
-                                :grant_type => 'authorization_code')
-  
+                                :site => 'https://api.sandbox.wealthsimple.com/',
+                                :grant_type => 'authorization_code',
+                                :token_url => '/v1/oauth/token',
+                                :auth_scheme => :request_body
+                                )
     token = client.auth_code.get_token(auth_code,
                                        :redirect_uri => REDIRECT_URI)
   end
+
+  # Gets the current access token
+def get_access_token
+  # Get the current token hash from session
+  token_hash = session[:ws_token]
+
+  client = OAuth2::Client.new(CLIENT_ID,
+                              CLIENT_SECRET,
+                              :site => 'https://login.microsoftonline.com',
+                              :authorize_url => '/common/oauth2/v2.0/authorize',
+                              :token_url => '/common/oauth2/v2.0/token')
+
+  token = OAuth2::AccessToken.from_hash(client, token_hash)
+
+  # Check if token is expired, refresh if so
+  if token.expired?
+    new_token = token.refresh!
+    # Save new token
+    session[:azure_token] = new_token.to_hash
+    access_token = new_token.token
+  else
+    access_token = token.token
+  end
+end
 end

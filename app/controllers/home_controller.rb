@@ -9,6 +9,6 @@ class HomeController < ApplicationController
     def gettoken
       auth_code = params[:code]
       token = get_token_from_code(auth_code)
-      render html: token
+      render text: token
   end
 end
