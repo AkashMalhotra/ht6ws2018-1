@@ -3,8 +3,8 @@ class CallbackController < ApplicationController
 
     def gettoken
         token = get_token_from_code params[:code]
-        session[:ws_token] = token.to_hash
-        render text: "Access token saved in session cookie."
-        #render plain: "#{token.token}"
+        render html: "TOKEN: #{token.token}"
+        #session[:ws_token] = token.to_hash
+        #redirect_to accessed_index_url
     end
 end

@@ -8,7 +8,7 @@ module CallbackHelper
   # Scopes required by the app
   SCOPES = [ 'read' ]
 
-  REDIRECT_URI =  "http://localhost:3000/callback" # Temporary!
+  REDIRECT_URI =  "http://localhost:3000/callback" # Registered
 
   # Generates the login URL for the app.
   def get_login_url
@@ -41,9 +41,10 @@ def get_access_token
 
   client = OAuth2::Client.new(CLIENT_ID,
                               CLIENT_SECRET,
-                              :site => 'https://login.microsoftonline.com',
-                              :authorize_url => '/common/oauth2/v2.0/authorize',
-                              :token_url => '/common/oauth2/v2.0/token')
+                              :site => 'https://api.sandbox.wealthsimple.com/',
+                              :token_url => '/v1/oauth/token',
+                              :auth_scheme => :request_body
+                              )
 
   token = OAuth2::AccessToken.from_hash(client, token_hash)
 
@@ -51,7 +52,7 @@ def get_access_token
   if token.expired?
     new_token = token.refresh!
     # Save new token
-    session[:azure_token] = new_token.to_hash
+    session[:ws_token] = new_token.to_hash
     access_token = new_token.token
   else
     access_token = token.token
