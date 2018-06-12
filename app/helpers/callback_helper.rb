@@ -6,7 +6,7 @@ module CallbackHelper
   CLIENT_SECRET = '8ec4270af0d79a170445a65f7f9e792df0ab813fa07f938f10c11390f7aba799'
 
   # Scopes required by the app
-  SCOPES = [ 'read' ]
+  SCOPES = [ 'read write' ]
 
   REDIRECT_URI =  "http://localhost:3000/callback" # Registered
 
@@ -17,8 +17,10 @@ module CallbackHelper
                                 :site => 'https://staging.wealthsimple.com/oauth/authorize',
                                 :response_type => 'code',
                                 :state => '777')
-
-    login_url = client.auth_code.authorize_url(:redirect_uri => REDIRECT_URI, :scope => SCOPES.join(' '))
+    response_type = 'code'
+    scope = 'read write'
+    state = '1234'
+    url =  "https://staging.wealthsimple.com/oauth/authorize?client_id=#{CLIENT_ID}&redirect_uri=#{REDIRECT_URI}&response_type=#{response_type}&scope=#{scope}&state=#{state}"
   end
 
   # Exchanges an authorization code for a token
