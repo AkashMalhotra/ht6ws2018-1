@@ -52,7 +52,7 @@ module CallbackHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["Authorization"] = 'Bearer d0711b91a7f6b4edd786966b11861073b2c878a539b26c8138dc60ae5bcf261b'
+    request["Authorization"] = "Bearer #{token}"
 
     response = http.request(request)
     puts response.read_body
