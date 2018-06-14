@@ -59,6 +59,28 @@ module CallbackHelper
     puts "hello"
   end
 
+def getResource(token,resourceName, query=nil)
+  require 'uri'
+  require 'net/http'
+
+  url = URI("https://api.sandbox.wealthsimple.com/v1/#{resourceName}")
+
+  http = Net::HTTP.new(url.host, url.port)
+
+  http.use_ssl = true
+  # might need this as well? 
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request = Net::HTTP::Get.new(url)
+  request["Authorization"] = "Bearer #{token}"
+
+  response = http.request(request)
+  puts response.read_body
+  return response
+end
+
+
+
   # Gets the current access token
 def get_access_token()
   # Get the current token hash from session
