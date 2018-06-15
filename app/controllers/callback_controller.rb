@@ -9,8 +9,10 @@ class CallbackController < ApplicationController
         response = getResource(token["access_token"],'accounts')
         body = JSON.parse(response.body)
         accounts = body["results"]
-        #tfsa = body.select{ |acc| acc[:type] == 'ca_tfsa'}
-        render html: account
+
+        #get tfsa account
+        tfsa = accounts.select{ |acc| acc["type"] == 'ca_tfsa'}
+        render html: tfsa
         #@token = token
 
         #accounts = get_bank_accounts(token["access_token"])
