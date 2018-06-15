@@ -1,4 +1,4 @@
-module CallbackHelper
+ module CallbackHelper
   # App's client ID. Register the app in Application Registration Portal to get this value.
   CLIENT_ID = '028e0e8082c2551e67aa6b0a8de6c83e125d313e3fad9d7392aa1e78bdba9200'
   # App's client secret. Register the app in Application Registration Portal to get this value.
@@ -79,6 +79,30 @@ def getResource(token,resourceName, query=nil)
   return response
 end
 
+def create_deposit(token,)
+
+  require 'uri'
+  require 'net/http'
+
+  url = URI("https://api.sandbox.wealthsimple.com/v1/deposits")
+
+  http = Net::HTTP.new(url.host, url.port)
+
+  http.use_ssl = true
+  # might need this as well? 
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request = Net::HTTP::Post.new(url)
+  request["Authorization"] = "Bearer #{token}"
+  request["client_id"] = "person-7_a3o6t4od5ova" #client_id
+  request["bank_account_id"] = "bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w" #bank_id
+  request["account_id"] = "tfsa-arbu_-o3" #deposit_account
+  request["amount"] = 400
+  request["currency"] = "CAD"
+  response = http.request(request)
+  puts response.read_body
+  return response
+end
 
 
   # Gets the current access token
