@@ -6,15 +6,15 @@ class CallbackController < ApplicationController
         owner_id = token["resource_owner_id"]
         client_id = token["client_canonical_id"]
         puts token
-        response = getResource(token["access_token"],'accounts')
+        response = getResource(token["access_token"],'bank_accounts')
         body = JSON.parse(response.body)
         accounts = body["results"]
 
         #get tfsa account
-        tfsa = accounts.select{ |acc| acc["type"] == 'ca_tfsa'}
-        render html: tfsa
+        #tfsa = accounts.select{ |acc| acc["type"] == 'ca_tfsa'}
+        #render html: tfsa
         #@token = token
-
+        render html: accounts
         #accounts = get_bank_accounts(token["access_token"])
         #@token = accounts
         #response = getResource(token["access_token"],'users')
