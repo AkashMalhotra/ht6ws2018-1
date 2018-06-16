@@ -79,7 +79,7 @@ def getResource(token,resourceName, query=nil)
   return response
 end
 
-def create_deposit(token,)
+def create_deposit(token)
 
   require 'uri'
   require 'net/http'
@@ -92,13 +92,15 @@ def create_deposit(token,)
   # might need this as well? 
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-  request = Net::HTTP::Post.new(url)
-  request["Authorization"] = "Bearer #{token}"
-  request["client_id"] = "person-7_a3o6t4od5ova" #client_id
-  request["bank_account_id"] = "bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w" #bank_id
-  request["account_id"] = "tfsa-arbu_-o3" #deposit_account
-  request["amount"] = 400
-  request["currency"] = "CAD"
+  request = Net::HTTP::Post.new(url,{'Content-Type' =>'application/json',
+  'Authorization' => "Bearer #{token}"})
+  request.body = {"client_id" => "person-7_a3o6t4od5ova", 
+  "bank_account_id" => "bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w",
+  "account_id" =>"tfsa-arbu_-o3",
+  "amount" => "100",
+  "currency" => "CAD",
+  "post_dated" => "2018-06-15"
+  }.to_json
   response = http.request(request)
   puts response.read_body
   return response
