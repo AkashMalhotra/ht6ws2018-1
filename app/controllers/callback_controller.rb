@@ -2,14 +2,18 @@ class CallbackController < ApplicationController
     include CallbackHelper
     
     def gettoken
+        #user = User.new()
         token = get_token_from_code
         owner_id = token["resource_owner_id"]
         client_id = token["client_canonical_id"]
         puts token
-        response = create_deposit(token["access_token"])
+        #user.update_attributes[access_token: "aaaa"]
+        #session[:btoken] = token["access_token"]
+        @token = token
+        #response = create_deposit(token["access_token"])
         #response = getResource(token["access_token"],'bank_accounts')
-        body = JSON.parse(response.body)
-        render html: body
+        #body = JSON.parse(response.body)
+        #render html: body
         #accounts = body["results"]
         #get tfsa account
         #tfsa = accounts.select{ |acc| acc["type"] == 'ca_tfsa'}
