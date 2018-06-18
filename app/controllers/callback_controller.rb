@@ -9,7 +9,8 @@ class CallbackController < ApplicationController
         response = create_deposit(token["access_token"])
         #response = getResource(token["access_token"],'bank_accounts')
         body = JSON.parse(response.body)
-        render html: body
+        @token = body
+        #render html: body
         #accounts = body["results"]
         #get tfsa account
         #tfsa = accounts.select{ |acc| acc["type"] == 'ca_tfsa'}
