@@ -12,7 +12,8 @@ class CallbackController < ApplicationController
         @token = token
         #response = create_deposit(token["access_token"])
         #response = getResource(token["access_token"],'bank_accounts')
-        #body = JSON.parse(response.body)
+        body = JSON.parse(response.body)
+        @token = body
         #render html: body
         #accounts = body["results"]
         #get tfsa account
