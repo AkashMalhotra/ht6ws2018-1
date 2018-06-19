@@ -7,6 +7,4 @@ class HomeController < ApplicationController
       @login_url = get_login_url
     end
 
-    def gettoken
-  end
 end

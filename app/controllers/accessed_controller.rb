@@ -1,6 +1,8 @@
 class AccessedController < ApplicationController
-  include AuthHelper
-  def index
-  end
+    include AccessedHelper
+    include CallbackHelper
+    def index
+      render html: "hello"
+    end
 
 end
