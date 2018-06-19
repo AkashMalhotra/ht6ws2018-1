@@ -10,16 +10,17 @@ class CallbackController < ApplicationController
 
         #hacky way of limiting the model to one user only
         if User.any?
-            User.first.destroy
+            User.first.update_attributes(access_token: acc_token, refresh_token: ref_token)
+        else
+            user = User.create(access_token: acc_token, refresh_token: ref_token)
         end
-        user = User.create(access_token: acc_token, refresh_token: ref_token)
-        puts user
+        puts User.first.access_token
         #response = create_deposit(token["access_token"])
         #response = getResource(token["access_token"],'bank_accounts')
         #body = JSON.parse(response.body)
-        @token = user.access_token
+        @token = User.first.access_token
         puts @token
-        render "accessed/index"
+        redirect_to accessed_index_url
         #render html: body
         #accounts = body["results"]
         #get tfsa account
