@@ -19,5 +19,5 @@
 
 //= require theme/jquery.slimscroll
 //= require theme/sidebarmenu
-//= require theme/scripts
 //= require theme/lib/sticky-kit-master/dist/sticky-kit.min
+//= require theme/scripts

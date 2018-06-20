@@ -8,12 +8,6 @@ class AccessedController < ApplicationController
         puts body
         #render html:body
     end
-    def depositsettings
-    	
-        @acc_token = get_acc_token
-        response = getResource(@acc_token,'bank_accounts')
-        body = JSON.parse(response.body)
-        puts body
-        #render html:body
-   	end
+    def deposit
+    end
 end

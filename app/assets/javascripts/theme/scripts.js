@@ -1,5 +1,6 @@
-$(function() {
+var ready = function() {
     "use strict";
+    Turbolinks.clearCache()
     $(function() {
             $(".preloader").fadeOut();
         }),
@@ -128,4 +129,6 @@ $(function() {
         $('a[data-action="close"]').on("click", function() {
             $(this).closest(".card").removeClass().slideUp("fast");
         });
-});
+};
+$(document).on('turbolinks:load',ready)
+$(document).ready(ready);

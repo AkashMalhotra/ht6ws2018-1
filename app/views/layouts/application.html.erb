@@ -8,12 +8,16 @@
         <!-- Custom CSS -->
     <%= stylesheet_link_tag    'theme/style', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag    'theme/helper', media: 'all', 'data-turbolinks-track' => true %>
-
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar mini-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
@@ -64,8 +68,9 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li><a href="index" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard </span> </a></li>
-                        <li><a href="depositsettings" aria-expanded="false"><i class="fa fa-usd"></i><span class="hide-menu">Desposit Settings</span> </a></li>
+                        <li>
+                        <a href="index" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard </span> </a></li>
+                        <li><a href="deposit" aria-expanded="false"><i class="fa fa-usd"></i><span class="hide-menu">Desposit Settings</span> </a></li>
                         <li><a href="index1.html" aria-expanded="false"><i class="fa fa-line-chart"></i><span class="hide-menu">Statistics </span> </a></li>
                         <li><a href="index1.html" aria-expanded="false"><i class="fa fa-credit-card"></i><span class="hide-menu">Transactions </span> </a></li>
                         <li><a href="index1.html" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Logout </span> </a></li>
