@@ -6,7 +6,7 @@ class AccessedController < ApplicationController
         response = getResource(@acc_token,'bank_accounts')
         body = JSON.parse(response.body)
         puts body
-        render html:body
+        #render html:body
     end
 
 end
