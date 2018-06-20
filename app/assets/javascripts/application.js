@@ -13,8 +13,11 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require_tree .
+
+//= require theme/jquery.slimscroll
+//= require theme/sidebarmenu
+//= require theme/scripts
+//= require theme/lib/sticky-kit-master/dist/sticky-kit.min

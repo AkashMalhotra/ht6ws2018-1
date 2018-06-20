@@ -10,6 +10,16 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require theme/style
+ *= require theme/helper
+ *= require font-awesome/css/font-awesome.min
+ *= require flag-icon-css/flag-icon.min
+ *= require font-awesome/css/font-awesome.min
+ *= require linea-icons/linea
+ *= require material-design-iconic-font/css/materialdesignicons.min
+ *= require simple-line-icons/css/simple-line-icons
+ *= require themify-icons/themify-icons
+ *= require weather-icons/css/weather-icons.min
  */
 
 @import 'bootstrap';
