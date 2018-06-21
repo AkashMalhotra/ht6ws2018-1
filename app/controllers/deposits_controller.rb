@@ -12,9 +12,9 @@ class DepositsController < ApplicationController
   end
 
   def create
-    @deposit = Deposit.new(params[:id])
+    @deposit = Deposit.new(deposit_params)
     if @deposit.save
-      
+      redirect_to ("/accessed/currentdeposit")
     else
       render :new
     end
@@ -37,5 +37,9 @@ class DepositsController < ApplicationController
     @deposit = Product.find(params[:id])
     @deposit.destroy
     redirect_to products_url, notice: "Successfully destroyed deposit."
+  end
+
+  def deposit_params
+    params.permit(:name, :waccount, :daccount,:dtype, :value)
   end
 end

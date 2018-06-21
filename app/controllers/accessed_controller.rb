@@ -12,6 +12,7 @@ class AccessedController < ApplicationController
         #puts body
         #render html:body
     end
+
     def deposit
     	@acc_token = get_acc_token
     	response = getResource(@acc_token,'bank_accounts')
@@ -23,5 +24,10 @@ class AccessedController < ApplicationController
     end
     
     def post
+   	end
+
+   	def currentdeposit
+   		puts Deposit.all.map {|e|e.attributes.values}
+   		@deposit = Deposit.all.map {|e|e.attributes.values}
    	end
 end
