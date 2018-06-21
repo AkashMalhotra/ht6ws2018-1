@@ -20,4 +20,7 @@
 //= require theme/jquery.slimscroll
 //= require theme/sidebarmenu
 //= require theme/lib/sticky-kit-master/dist/sticky-kit.min
+//= require theme/lib/morris-chart/raphael-min
+//= require theme/lib/morris-chart/morris
+//= require theme/lib/morris-chart/morris-init
 //= require theme/scripts

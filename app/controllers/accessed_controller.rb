@@ -23,7 +23,7 @@ class AccessedController < ApplicationController
    	end
 
    	def currentdeposit
-   		puts Deposit.all.map {|e|e.attributes.values}
+   		#puts Deposit.all.map {|e|e.attributes.values}
    		@deposit = Deposit.all.map {|e|e.attributes.values}
    	end
 end
