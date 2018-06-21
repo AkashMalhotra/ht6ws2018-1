@@ -32,7 +32,8 @@ class AccessedController < ApplicationController
    	end
 
    	def action
-   		puts "hi"
+    	@acc_token = get_acc_token
+   		puts create_deposit(@acc_token, 1.06)
    	end
 
 

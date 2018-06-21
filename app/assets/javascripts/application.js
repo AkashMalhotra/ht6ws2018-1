@@ -23,4 +23,6 @@
 //= require theme/lib/morris-chart/raphael-min
 //= require theme/lib/morris-chart/morris
 //= require theme/lib/morris-chart/morris-init
+//= require theme/lib/toastr/toastr.min
+//= require theme/lib/toastr/toastr.init
 //= require theme/scripts

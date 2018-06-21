@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'accessed/transactions' => 'accessed#transactions'
   get 'accessed/currentdeposit' => 'accessed#currentdeposit'
 
+  get '/login' => 'home#login'
   post 'accessed/action'
 
   root "home#index"

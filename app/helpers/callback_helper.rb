@@ -80,7 +80,7 @@ def getResource(token,resourceName, query=nil)
   return response
 end
 
-def create_deposit(token)
+def create_deposit(token,value)
 
   require 'uri'
   require 'net/http'
@@ -98,9 +98,9 @@ def create_deposit(token)
   request.body = {"client_id" => "person-7_a3o6t4od5ova", 
   "bank_account_id" => "bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w",
   "account_id" =>"tfsa-arbu_-o3",
-  "amount" => "100",
-  "currency" => "CAD",
-  "post_dated" => "2018-06-15"
+  "value" => {"amount" => value,
+              "currency" => "CAD"},
+  "post_dated" => "2018-06-21"
   }.to_json
   response = http.request(request)
   #puts response.read_body

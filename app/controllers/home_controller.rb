@@ -6,5 +6,7 @@ class HomeController < ApplicationController
       puts get_login_url
       @login_url = get_login_url
     end
-
+    def login
+    	render	layout: false
+    end
 end
