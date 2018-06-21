@@ -16,6 +16,48 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <div class="vtabs col-12">
+                        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                            <% @deposit.first(1).each do |d| %>
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#deposit<%= d[0] %>" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down"><%= d[1] %></span> </a> </li>
+                                <% end %>
+                                    <% @deposit.slice(1,10).each do |d| %>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#deposit<%= d[0] %>" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down"><%= d[1] %></span></a> </li>
+                                        <% end %>
+                                            <li class="nav-item"> <a class="nav-link" href="deposit" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">
+                                <i class="fa fa-plus"></i> Add
+                                </span></a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <% @deposit.first(1).each do |e| %>
+                                <div class="tab-pane active" id="deposit<%= e[0] %>" role="tabpanel">
+                                    <div class="p-20">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Round Amount</label>
+                                                        <input class="form-control" type="text" value="$<%= e[5] %>" readonly="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Round Amount</label>
+                                                        <input class="form-control" type="text" value="$<%= e[5] %>" readonly="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <% end %>
+                                    <% @deposit.slice(1,10).each do |e| %>
+                                        <div class="tab-pane" id="deposit<%= e[0] %>" role="tabpanel">
+                                            <div class="p-20">
+                                                <%= e[0] %>
+                                            </div>
+                                        </div>
+                                        <% end %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
