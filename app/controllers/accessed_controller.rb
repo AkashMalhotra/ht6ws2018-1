@@ -5,7 +5,10 @@ class AccessedController < ApplicationController
         @acc_token = get_acc_token
         response = getResource(@acc_token,'accounts')
         body = JSON.parse(response.body)
-		@new = body["results"][3]["gross_position"]["amount"];
+		@gross = body["results"][4]["gross_position"]["amount"];
+        @totalw = body["results"][4]["total_withdrawals"]["amount"];
+        @totald = body["results"][4]["total_deposits"]["amount"];
+        @liqValue= body["results"][4]["net_liquidation"]["amount"];
         #puts body
         #render html:body
     end
@@ -19,6 +22,7 @@ class AccessedController < ApplicationController
         puts banks["results"]
         puts deposit["results"]
     end
+    
     def post
    	end
 

@@ -43,7 +43,7 @@
     require 'uri'
     require 'net/http'
 
-    url = URI("https://api.sandbox.wealthsimple.com/v1/accounts")
+    url = URI("https://api.sandbox.wealthsimple.com/v1/accounts/tfsa-arbu_-o3")
 
     http = Net::HTTP.new(url.host, url.port)
 
@@ -57,6 +57,7 @@
     response = http.request(request)
     #puts response.read_body
     #puts "hello"
+    return response
   end
 
 def getResource(token,resourceName, query=nil)
