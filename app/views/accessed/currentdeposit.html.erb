@@ -12,6 +12,7 @@
 <!-- End Bread crumb -->
 <!-- Container fluid  -->
 <div class="container-fluid">
+    
     <div class=row>
         <div class="col-lg-12">
             <div class="card">
@@ -76,6 +77,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <% end %>
+                                <%= form_tag accessed_action_path, method: :post do %>
+                                    <%= submit_tag 'Run Test', class:"btn btn-success " %>
                                 <% end %>
                         </div>
                     </div>

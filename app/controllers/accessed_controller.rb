@@ -30,4 +30,10 @@ class AccessedController < ApplicationController
    		#puts Deposit.all.map {|e|e.attributes.values}
    		@deposit = Deposit.all.map {|e|e.attributes.values}
    	end
+
+   	def action
+   		puts "hi"
+   	end
+
+
 end
