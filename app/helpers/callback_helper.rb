@@ -55,8 +55,8 @@
     request["Authorization"] = "Bearer #{token}"
 
     response = http.request(request)
-    puts response.read_body
-    puts "hello"
+    #puts response.read_body
+    #puts "hello"
   end
 
 def getResource(token,resourceName, query=nil)
@@ -75,7 +75,7 @@ def getResource(token,resourceName, query=nil)
   request["Authorization"] = "Bearer #{token}"
 
   response = http.request(request)
-  puts response.read_body
+  #puts response.read_body
   return response
 end
 
@@ -102,7 +102,7 @@ def create_deposit(token)
   "post_dated" => "2018-06-15"
   }.to_json
   response = http.request(request)
-  puts response.read_body
+  #puts response.read_body
   return response
 end
 

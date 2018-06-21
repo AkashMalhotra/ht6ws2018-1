@@ -14,7 +14,7 @@ class CallbackController < ApplicationController
         else
             user = User.create(access_token: acc_token, refresh_token: ref_token)
         end
-        puts User.first.access_token
+        #puts User.first.access_token
         #response = create_deposit(token["access_token"])
         #response = getResource(token["access_token"],'bank_accounts')
         #body = JSON.parse(response.body)

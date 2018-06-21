@@ -14,7 +14,7 @@ class DepositsController < ApplicationController
   def create
     @deposit = Deposit.new(params[:id])
     if @deposit.save
-      redirect_to @deposit, notice: "Successfully created deposit."
+      
     else
       render :new
     end

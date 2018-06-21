@@ -3,9 +3,10 @@ class AccessedController < ApplicationController
     include CallbackHelper
     def index
         @acc_token = get_acc_token
-        response = getResource(@acc_token,'bank_accounts')
+        response = getResource(@acc_token,'accounts')
         body = JSON.parse(response.body)
-        puts body
+		@new = body["results"][3]["gross_position"]["amount"];
+        #puts body
         #render html:body
     end
     def deposit
@@ -16,7 +17,6 @@ class AccessedController < ApplicationController
     	deposit = JSON.parse(response.body)
         puts banks["results"]
         puts deposit["results"]
-        
     end
     def post
    	end
