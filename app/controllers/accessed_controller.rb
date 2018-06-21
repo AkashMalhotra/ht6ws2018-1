@@ -10,6 +10,8 @@ class AccessedController < ApplicationController
         @totald = body["results"][4]["total_deposits"]["amount"];
         @liqValue= body["results"][4]["net_liquidation"]["amount"];
         #puts body
+   		@deposit = Deposit.all.map {|e|e.attributes.values}
+   		puts @deposit.length
         #render html:body
     end
 
