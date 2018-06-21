@@ -1,3 +1,4 @@
+<script src="https://d3js.org/d3.v5.min.js"></script>
 
             <!-- Bread crumb -->
             <div class="row page-titles">
@@ -22,8 +23,8 @@
                                     <span><i class="ti-bag f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white"><%= @new %></h2>
-                                    <p class="m-b-0">New Posts</p>
+                                    <h2 class="color-white"><%= @totald %></h2>
+                                     <p class="m-b-0">Total deposits</p>
                                 </div>
                             </div>
                         </div>
@@ -35,8 +36,8 @@
                                     <span><i class="ti-comment f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">278</h2>
-                                    <p class="m-b-0">New Comment</p>
+                                    <h2 class="color-white"><%= @gross %></h2>
+                                    <p class="m-b-0">Gross Position</p>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +49,8 @@
                                     <span><i class="ti-vector f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">$27647</h2>
-                                    <p class="m-b-0">Bounce Rate</p>
+                                    <h2 class="color-white"><%= @totalw %></h2>
+                                    <p class="m-b-0">Total Withdrawals</p>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +62,8 @@
                                     <span><i class="ti-location-pin f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">278</h2>
-                                    <p class="m-b-0">Total Visitor</p>
+                                    <h2 class="color-white"><%= @liqValue %></h2>
+                                    <p class="m-b-0">Net Liquidation</p>
                                 </div>
                             </div>
                         </div>
@@ -85,49 +86,74 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Visitor in Device</h4>
+                                <h4>Breakfast</h4>
                             </div>
                             <div class="card-body">
 								<div class="table-responsive">
 									<table class="table table-hover ">
 										<thead>
 											<tr>
-												<th>Device</th>
-												<th>Visits</th>
-												<th>Avg. time</th>
+												<th>Transaction date</th>
+												<th>Cost</th>
+												<th>Rounded cost</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td>Unknown</td>
-												<td>2,456</td>
-												<td>00:02:36</td>
+												<td>January 1, 2018</td>
+												<td>3.68</td>
+												<td>4</td>
 											</tr>
 											<tr>
-												<td>Apple iPad</td>
-												<td>1,006</td>
-												<td>00:03:41</td>
+												<td>January 2, 2018</td>
+												<td>4.44</td>
+												<td>5</td>
 											</tr>
 											<tr>
-												<td>Apple iPhone</td>
-												<td>68</td>
-												<td>00:04:10</td>
+												<td>January 3, 2018</td>
+												<td>6.56</td>
+												<td>7</td>
 											</tr>
 											<tr>
-												<td>HTC Desire</td>
-												<td>38</td>
-												<td>00:01:40</td>
+												<td>January 4, 2018</td>
+												<td>5.93</td>
+												<td>6</td>
 											</tr>
 											<tr>
-												<td>Samsung</td>
-												<td>20</td>
-												<td>00:04:54</td>
+												<td>January 5, 2018</td>
+												<td>10.78</td>
+												<td>11</td>
 											</tr>
 											<tr>
-												<td>Apple iPad</td>
-												<td>1,006</td>
-												<td>00:03:41</td>
+												<td>January 6, 2018</td>
+												<td>10.51</td>
+												<td>11</td>
 											</tr>
+                                            <tr>
+                                                <td>January 7, 2018</td>
+                                                <td>2.36</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>January 8, 2018</td>
+                                                <td>3.68</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>January 9, 2018</td>
+                                                <td>3.88</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>January 10, 2018</td>
+                                                <td>6.50</td>
+                                                <td>7</td>
+                                            </tr>
+                                            <tr>
+                                                <td>January 11, 2018</td>
+                                                <td>5.30</td>
+                                                <td>6</td>
+                                            </tr>
 										</tbody>
 									</table>
 								</div>
