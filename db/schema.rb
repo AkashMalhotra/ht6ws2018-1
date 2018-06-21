@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_012218) do
+ActiveRecord::Schema.define(version: 2018_06_21_015429) do
+
+  create_table "deposits", force: :cascade do |t|
+    t.string "waccount"
+    t.string "daccount"
+    t.string "type"
+    t.decimal "ammount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false

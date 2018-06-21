@@ -26,7 +26,9 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="round-off4" role="tabpanel">
                                             <div class="p-20">
-                                            <form action="#">
+                                            <form accept-charset="UTF-8" action="<%= deposits_url %>"  method="post">
+                                                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                                <input type="hidden" name="type" value="round">
                                                 <div class="form-body">
                                                     <h3 class="card-title m-t-15">Account Selection</h3>
                                                     <hr>
@@ -34,24 +36,20 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Withdraw</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=waccount>
+                                                                    <option value="bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w">RBC ****533</option>
+                                                                    <option value=bank_account-UOmUMkBVkdHxbZkyTTkYcAw7ZsQ">RBC ****453</option>
+                                                                    <option value="bank_account-NOSMqWq17OqwzdxCA2rB2gA2LNw">BMO ****121</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Deposit</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=daccount>
+                                                                    <option value="rrsp-50dttgfe">RRSP</option>
+                                                                    <option value="tfsa-arbu_-o3">TSFA</option>
+                                                                    <option value="ca-hisa-lciuw77c">HISA</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -64,7 +62,7 @@
                                                                 <label>Round Off</label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon" style="padding:7px;border-left: 1px solid #e7e7e7;border-top: 1px solid #e7e7e7;border-bottom: 1px solid #e7e7e7;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">$</span>
-                                                                    <input type="number" class="form-control input-default" placeholder="0.00" />
+                                                                    <input type="number" class="form-control input-default" name="amount" placeholder="0.00" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -96,7 +94,10 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane p-20" id="income4" role="tabpanel">
-                                            <form action="#">
+                                            
+                                            <form accept-charset="UTF-8" action="<%= deposits_url %>"  method="post">
+                                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                            <input type="hidden" name="type" value="pincome">
                                                 <div class="form-body">
                                                     <h3 class="card-title m-t-15">Account Selection</h3>
                                                     <hr>
@@ -104,24 +105,21 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Withdraw</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=waccount>
+                                                                    <option value="bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w">RBC ****533</option>
+                                                                    <option value=bank_account-UOmUMkBVkdHxbZkyTTkYcAw7ZsQ">RBC ****453</option>
+                                                                    <option value="bank_account-NOSMqWq17OqwzdxCA2rB2gA2LNw">BMO ****121</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Deposit</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=daccount>
+                                                                    <option value="rrsp-50dttgfe">RRSP</option>
+                                                                    <option value="tfsa-arbu_-o3">TSFA</option>
+                                                                    <option value="ca-hisa-lciuw77c">HISA</option>
+                                                                </select>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -133,7 +131,7 @@
                                                             <div class="form-group">
                                                                 <label>Percent of Income</label>
                                                                 <div class="input-group">
-                                                                    <input type="number" class="form-control input-default" placeholder="00" />
+                                                                    <input type="number" name="amount" class="form-control input-default" placeholder="00" />
                                                                     <span class="input-group-addon" style="padding:7px;border-right: 1px solid #e7e7e7;border-top: 1px solid #e7e7e7;border-bottom: 1px solid #e7e7e7;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">%</span>
                                                                 </div>
                                                             </div>
@@ -148,7 +146,9 @@
                                             </form>
                                         </div>
                                         <div class="tab-pane p-20" id="spendings4" role="tabpanel">
-                                            <form action="#">
+                                            <form accept-charset="UTF-8" action="<%= deposits_url %>"  method="post">
+                                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                            <input type="hidden" name="type" value="pspendings">
                                                 <div class="form-body">
                                                     <h3 class="card-title m-t-15">Account Selection</h3>
                                                     <hr>
@@ -156,24 +156,21 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Withdraw</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=waccount>
+                                                                    <option value="bank_account-r9csRpcyhbOvTKSnCGbbcoNs3w">RBC ****533</option>
+                                                                    <option value=bank_account-UOmUMkBVkdHxbZkyTTkYcAw7ZsQ">RBC ****453</option>
+                                                                    <option value="bank_account-NOSMqWq17OqwzdxCA2rB2gA2LNw">BMO ****121</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Deposit</label>
-                                                                <select class="form-control input-default">
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
+                                                                <select class="form-control input-default" name=daccount>
+                                                                    <option value="rrsp-50dttgfe">RRSP</option>
+                                                                    <option value="tfsa-arbu_-o3">TSFA</option>
+                                                                    <option value="ca-hisa-lciuw77c">HISA</option>
+                                                                </select>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -185,7 +182,7 @@
                                                             <div class="form-group">
                                                                 <label>Percent of Spendings</label>
                                                                 <div class="input-group">
-                                                                    <input type="number" class="form-control input-default" placeholder="00" />
+                                                                    <input type="number" name="amount" class="form-control input-default" placeholder="00" />
                                                                     <span class="input-group-addon" style="padding:7px;border-right: 1px solid #e7e7e7;border-top: 1px solid #e7e7e7;border-bottom: 1px solid #e7e7e7;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">%</span>
                                                                 </div>
                                                             </div>

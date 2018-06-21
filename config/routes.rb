@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :deposits
   get 'users/new'
   get 'accessed/index' => 'accessed#index'
   get 'accessed/deposit' => 'accessed#deposit'

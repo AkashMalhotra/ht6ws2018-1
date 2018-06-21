@@ -1,6 +1,5 @@
 var ready = function() {
     "use strict";
-    Turbolinks.clearCache()
     $(function() {
             $(".preloader").fadeOut();
         }),
